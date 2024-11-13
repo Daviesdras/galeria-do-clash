@@ -1,0 +1,136 @@
+/* styles.css */
+
+/* Estilo geral da página */
+body {
+    background-color: #1b1f2d; /* Fundo escuro como o tema do Clash Royale */
+    font-family: 'Press Start 2P', sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo da coroa */
+.coroa {
+    position: relative;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 50px;
+    background-color: #ffd700;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    margin-bottom: 20px;
+}
+
+.coroa .joia {
+    width: 15px;
+    height: 20px;
+    background-color: #ff4747; /* Cor das joias */
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.coroa::before,
+.coroa::after,
+.coroa .ponta-central {
+    content: "";
+    width: 20px; /* Largura das pontas */
+    height: 30px; /* Altura das pontas */
+    background-color: #ffd700;
+    position: absolute;
+    top: -30px; /* Altura para que as pontas fiquem acima da coroa */
+    border-radius: 5px; /* Arredondar os cantos das pontas */
+}
+
+.coroa::before {
+    left: 10px; /* Ponta esquerda */
+}
+
+.coroa::after {
+    right: 10px; /* Ponta direita */
+}
+
+.coroa .ponta-central {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estilo da galeria */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}/* Estilo de cada post */
+.post {
+    background-color: #2e3a56;
+    border: 3px solid #ffd700; /* Borda dourada */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden; /* Garante que a descrição fique dentro do contêiner */
+}
+
+.post img {
+    max-width: 100%; /* Mantém a imagem dentro do contêiner */
+    border-radius: 5px;
+    transition: opacity 0.3s ease; /* Efeito de transição para a imagem */
+}
+
+/* Título do post sempre visível */
+.post h3 {
+    color: #ffd700; /* Texto dourado para o título do post */
+    margin: 10px 0 5px;
+}
+
+/* Descrição inicialmente oculta */
+.post p.descricao {
+    color: #ffffff; /* Texto branco para a descrição */
+    font-size: 12px;
+    opacity: 0; /* Descrição invisível por padrão */
+    position: absolute;
+    bottom: 10px; /* Alinha a descrição na parte inferior do post */
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    padding: 5px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease; /* Efeito de transição para a descrição */
+}
+
+.post:hover p.descricao {
+    opacity: 1; /* Mostra a descrição ao passar o mouse */
+}
+
+.post:hover img {
+    opacity: 0.8; /* Reduz levemente a opacidade da imagem ao passar o mouse */
+}
+
+
+.botao {
+    position: fixed; /* Fixa o botão no canto inferior */
+    bottom: 20px; /* Distância do fundo da página */
+    right: 20px; /* Distância do lado direito da página */
+    background-color: #ffd700; /* Cor do botão */
+    color: #1b1f2d; /* Cor do texto do botão */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #e6c200; /* Efeito de hover no botão */
+}

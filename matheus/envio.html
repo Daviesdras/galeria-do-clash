@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo geral da página */
+        body {
+            background-color: #1b1f2d; /* Fundo escuro como o tema do Clash Royale */
+            font-family: 'Press Start 2P', sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Estilo do formulário */
+        form {
+            background-color: #2e3a56;
+            border: 3px solid #ffd700; /* Borda dourada como o estilo Clash Royale */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffd700; /* Texto dourado para o título */
+            margin-top: 20px;
+        }
+
+        label {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 2px solid #4682b4; /* Azul royal para a borda */
+            border-radius: 5px;
+            background-color: #f0f8ff;
+            color: #000;
+            font-family: 'Press Start 2P', sans-serif;
+            font-size: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #ffd700; /* Botão dourado */
+            color: #1b1f2d;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Press Start 2P', sans-serif;
+            font-size: 12px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e6c200; /* Efeito de hover no botão */
+        }
+
+        /* Estilo da coroa */
+        .coroa {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 50px;
+            background-color: #ffd700;
+            border-radius: 0 0 15px 15px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+
+        .coroa .joia {
+            width: 15px;
+            height: 20px;
+            background-color: #ff4747; /* Cor das joias */
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .coroa::before,
+        .coroa::after,
+        .coroa .ponta-central {
+            content: "";
+            width: 20px; /* Largura das pontas */
+            height: 30px; /* Altura das pontas */
+            background-color: #ffd700;
+            position: absolute;
+            top: -30px; /* Altura para que as pontas fiquem acima da coroa */
+            border-radius: 5px; /* Arredondar os cantos das pontas */
+        }
+
+        .coroa::before {
+            left: 5px; /* Ponta esquerda */
+        }
+
+        .coroa::after {
+            right: 5px; /* Ponta direita */
+        }
+
+        .coroa .ponta-central {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <form action="upload_post.php" method="post" enctype="multipart/form-data">
+        <!-- Coroa acima do formulário -->
+        <div class="coroa">
+            <div class="joia"></div>
+            <div class="joia"></div>
+            <div class="joia"></div>
+            <div class="ponta-central"></div> <!-- Ponta central -->
+        </div>
+
+        <h2>Enviar Post</h2>
+
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" id="titulo" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea name="descricao" id="descricao" rows="4" required></textarea>
+
+        <label for="imagem">Imagem:</label>
+        <input type="file" name="imagem" id="imagem" accept="image/*" required>
+
+        <input type="submit" value="Enviar Post">
+    </form>
+</body>
+</html>
